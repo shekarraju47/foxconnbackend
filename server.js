@@ -71,7 +71,7 @@ app.get('/files', (req, res) => {
 
 app.get('/download', (req, res) => {
   const { fileName } = req.query;
-  
+
   if (!fileName) {
     return res.status(400).send('File name is required.');
   }
@@ -90,6 +90,14 @@ app.get('/download', (req, res) => {
     res.status(404).send('File not found.');
   }
 });
+
+app.get('/', (req, res) => {
+  res.send({
+    msg: 'Hello Foxconn'
+  })
+  console.log("Hello Foxconn");
+
+})
 
 // Start the server
 app.listen(port, () => {
